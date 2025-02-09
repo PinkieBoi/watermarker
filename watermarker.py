@@ -21,7 +21,7 @@ def add_watermark():
     global user_photo
     global img
     txt = Image.new("RGBA", (1920, 1080), (255, 255, 255, 0))
-    wmk_fnt = ImageFont.truetype("/usr/share/fonts/ubuntu/Ubuntu-R.ttf", 200)
+    wmk_fnt = ImageFont.truetype("fonts/Ubuntu-Regular.ttf", 200)
     d = ImageDraw.Draw(txt)
     d.text(xy=(50, 50), text=f"{getpass.getuser()}", fill=(0, 0, 0, 160), font=wmk_fnt)
     d.text(xy=(500, 400), text=getpass.getuser(), fill=(0, 0, 0, 160), font=wmk_fnt)
@@ -54,4 +54,7 @@ save_btn.grid(row=2, column=2)
 exit_btn = Button(text="Exit", font=FONT, highlightthickness=0, justify="center", command=exit)
 exit_btn.grid(row=3, column=0, columnspan=3)
 
-win.mainloop()
+
+if __name__ == "__main__":
+    win.mainloop()
+

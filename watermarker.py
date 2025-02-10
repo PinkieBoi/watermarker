@@ -13,7 +13,16 @@ def display_image(image):
 def open_file():
     global img
     global user_photo
-    user_photo = Image.open(tkinter.filedialog.askopenfilename()).resize((1920, 1080)).convert(mode="RGBA")
+    user_photo = Image.open(tkinter.filedialog.askopenfilename(
+        title="Open Image",
+        filetypes=[
+            ("Images", "*.png"),
+            ("Images", "*.jpg"),
+            ("Images", "*.jpeg"),
+            ("Images", "*.webp"),
+            ("Images", "*.svg")
+        ]
+    )).resize((1920, 1080)).convert(mode="RGBA")
     display_image(user_photo)
 
 
